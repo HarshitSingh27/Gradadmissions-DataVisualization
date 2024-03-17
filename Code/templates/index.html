@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Frequencies Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1 style= "text-align: center; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ">Visualisation of social interactions in r/gradadmissions</h1>
+    <br>
+    <h3 style=" text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Project Summary</h3>
+    <p class="centered-text" style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        This visualization project targets the collection and analysis of rejection-related posts from the r/gradadmissions subreddit, along with the comments of these posts. We aim to answer the following research questions:
+        <br>
+        <br>What are the main themes in the replies to the rejection posts?
+        <br>What are some positive phrases that community members use to support each other?
+        <br>
+        <br>
+        By answering these RQs, we show the unique interaction of competitors offering mutual support in graduate admissions. This endeavor seeks to shed light on the types of support, advice, and shared experiences in this online community.
+    </p>
+    
+    <h3 style=" text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Data Source</h3>
+    <p class="centered-text" style=" text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        We collected data about r/gradadmissions from an online dataset, 
+        Reddit Corpus (https://convokit.cornell.edu/documentation/subreddit.html),
+        selecting data from 2012 to 2018. We then filter all posts with the rejection mentioned in their titles.
+        We analyze these data and create visualizations about word count per post distribution, word cloud graphs,
+        and word frequencies by support category.”
+    </p>
+    <br><br><br>
+    <h3 style=" text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Bar Graph</h3>
+    {{ bar_graph|safe }}
+    <br>      
+      <div class="word-cloud-container">
+        <div class="word-cloud">
+          <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Unigram Word Cloud</h3>
+          <img src="data:image/png;base64,{{ unigram_img }}" alt="Word Cloud">
+        </div>
+        <div class="word-cloud">
+          <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Bigram Word Cloud</h3>
+          <img src="data:image/png;base64,{{ bigram_img }}" alt="Word Cloud">
+        </div>
+        <div class="word-cloud">
+          <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Trigram Word Cloud</h3>
+          <img src="data:image/png;base64,{{ trigram_img }}" alt="Word Cloud">
+        </div>
+      </div>
+    <br><br><br><br>
+    <h3 style= "text-align: center; font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Bubble Graph</h3>
+    {{ graph_html|safe }}
+</body>
+</html>
+<style>
+    .centered-text {
+        max-width: 600px; /* Adjust this value as needed */
+        margin: auto;
+    }
+    .word-cloud-container {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px; 
+    }
+  
+    .word-cloud {
+      flex: 1; 
+      min-width: 250px; 
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  
+    .word-cloud img {
+      max-width: 100%; 
+      height: auto; 
+    }
+  </style>
