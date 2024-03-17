@@ -47,4 +47,4 @@ To explore the dynamics of support in academic rejection on r/gradadmissions:
 
 ## Support
 
-For questions or support, please contact us at (contact information).
+For questions or support, please contact us at (hs58@illinois.edu).
